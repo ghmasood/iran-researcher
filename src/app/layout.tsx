@@ -7,7 +7,7 @@ const dana = localFont({
 });
 
 export const metadata = {
-  title: "Iran Researchers",
+  title: "Iran Researcher",
   description: "Make a decision based on data",
   charset: "utf-8",
 };
