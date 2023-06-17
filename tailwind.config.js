@@ -43,7 +43,10 @@ module.exports = {
       gray: "rgba(245, 245, 245, 1)",
     },
     boxShadow: {
-      DEFAULT: "0px 0px 32px 0px rgba(0, 0, 0, 0.07);",
+      DEFAULT: "0px 0px 32px 0px rgba(0, 0, 0, 0.07)",
+    },
+    dropShadow: {
+      dark: "10px 10px 32px 10px rgba(0, 0, 0, 0.7)",
     },
     extend: {
       backgroundImage: {

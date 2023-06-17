@@ -1,11 +1,22 @@
+import BulletTitle from "components/BulletTitle";
 import CategoryChip from "components/CategoryChip";
 import CategorySlider from "components/CatrgorySlider";
-import { ICategoryChip, ICategorySlider, categories } from "types";
+import FooterCommentSection from "components/Footer/CommentSection";
+import FooterCommentItem from "components/Footer/CommentSection/FooterCommentItem";
+import {
+  ICategoryChip,
+  ICategorySlider,
+  IFooterCommentItem,
+  categories,
+} from "types";
 
 export default function Home() {
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center flex-col gap-12 p-24">
       <CategorySlider categories={mockData} />
+      <div className="w-1/2">
+        <FooterCommentSection lastComments={commentss} />
+      </div>
     </div>
   );
 }
@@ -20,30 +31,46 @@ const mockData: ICategoryChip[] = [
   },
   {
     bgImage:
-      "https://www.daysoftheyear.com/wp-content/uploads/national-fast-food-day.jpg",
+      "https://www.digistyle.com/mag/wp-content/uploads/2022/02/milan-fashion.jpg",
     category: categories.FOOD,
     link: "/",
-    title: "خوراک",
+    title: "پوشاک",
+  },
+  {
+    bgImage: "https://media.khabaronline.ir/d/2020/08/24/4/5448142.jpg",
+    category: categories.FOOD,
+    link: "/",
+    title: "اقتصاد",
   },
   {
     bgImage:
-      "https://www.daysoftheyear.com/wp-content/uploads/national-fast-food-day.jpg",
+      "https://footofan.com/cmsfiles/mainportal/images/11779-footofan_com.jpg",
     category: categories.FOOD,
     link: "/",
-    title: "خوراک",
+    title: "آموزش",
+  },
+];
+
+const commentss: IFooterCommentItem[] = [
+  {
+    author: "مسعود",
+    link: "#",
+    text: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+  },
+
+  {
+    author: "مسعود",
+    link: "#",
+    text: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
   },
   {
-    bgImage:
-      "https://www.daysoftheyear.com/wp-content/uploads/national-fast-food-day.jpg",
-    category: categories.FOOD,
-    link: "/",
-    title: "خوراک",
+    author: "مسعود",
+    link: "#",
+    text: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
   },
   {
-    bgImage:
-      "https://www.daysoftheyear.com/wp-content/uploads/national-fast-food-day.jpg",
-    category: categories.FOOD,
-    link: "/",
-    title: "خوراک",
+    author: "مسعود",
+    link: "#",
+    text: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
   },
 ];

@@ -23,3 +23,9 @@ export interface ICategoryChip {
 export interface ICategorySlider {
   categories: ICategoryChip[];
 }
+
+export interface IFooterCommentItem {
+  author: string;
+  text: string;
+  link: string;
+}

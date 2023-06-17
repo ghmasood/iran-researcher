@@ -25,16 +25,12 @@ function CategoryChip({
       ])}
     >
       <span
-        className="z-[1] text-white absolute text-center top-1/2 -translate-y-1/2 drop-shadow-2xl
+        style={{ textShadow: "0.5px 0.5px 8px rgba(0,0,0,0.5)" }}
+        className="z-[1] text-white absolute text-center top-1/2 -translate-y-1/2
        w-full text-2xl font-extrabold"
       >
+        <span className="font-extralight">#</span>
         <span>{title}</span>
-        <span
-          className="font-extralight
-        "
-        >
-          #
-        </span>
       </span>
       <Image
         src={bgImage}
