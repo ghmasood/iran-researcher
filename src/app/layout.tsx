@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa">
-      <body className={`${dana.className} bg-primary`}>{children}</body>
+      <body className={`${dana.className}`}>{children}</body>
     </html>
   );
 }
