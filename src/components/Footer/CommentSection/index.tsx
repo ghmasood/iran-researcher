@@ -4,12 +4,14 @@ import FooterCommentItem from "./FooterCommentItem";
 import { IFooterCommentItem } from "types";
 
 function FooterCommentSection({
+  customClass = "",
   lastComments,
 }: {
   lastComments: IFooterCommentItem[];
+  customClass?: string;
 }) {
   return (
-    <section className="flex flex-col gap-6">
+    <section className={`flex flex-col gap-6 ${customClass}`}>
       <BulletTitle>آخرین نظرات</BulletTitle>
       <div className="flex flex-col gap-3">
         {lastComments.map((item, index) => (

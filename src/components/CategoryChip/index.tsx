@@ -14,7 +14,6 @@ function CategoryChip({
   bgImage,
   title,
 }: ICategoryChipProps) {
-  console.log(link);
   return (
     <Link
       href={link}
