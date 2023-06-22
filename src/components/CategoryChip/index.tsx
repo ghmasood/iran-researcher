@@ -19,7 +19,7 @@ function CategoryChip({
       href={link}
       prefetch={false}
       className={clsx([
-        "h-14 w-[10.5rem] relative rounded-xl overflow-hidden",
+        "h-14 relative rounded-xl overflow-hidden",
         customClass,
       ])}
     >

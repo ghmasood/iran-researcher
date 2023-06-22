@@ -5,7 +5,7 @@ import { IFooterCommentItem } from "types";
 
 function Footer() {
   return (
-    <footer className="flex w-full gap-8 pl-[12.75rem]">
+    <footer className="flex w-full items-center gap-8 pl-[12.75rem] bottom-0 absolute mb-14">
       <AboutMenuSection customClass="w-1/2" />
       <FooterCommentSection lastComments={comments} customClass="w-1/2" />
     </footer>
