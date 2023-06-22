@@ -4,7 +4,7 @@ import { IFooterCommentItem } from "types";
 
 function FooterCommentItem({ text, link, author }: IFooterCommentItem) {
   return (
-    <div className="flex flex-col gap-2 p-4 bg-gray rounded-xl">
+    <div className="flex flex-col gap py-1.5 px-4 bg-gray rounded-xl">
       <h4 className="text-primary text-2xl font-[450]">{author}</h4>
       <Link
         href={link}
