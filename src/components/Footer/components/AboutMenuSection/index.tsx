@@ -8,24 +8,29 @@ import SocialMedia from "../SocialMedia";
 function AboutMenuSection({ customClass = "" }: { customClass?: string }) {
   return (
     <div
-      className={`bg-gray rounded-bl-[3rem] rounded-tl-[3rem] pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] p-6 flex flex-col gap-6 ${customClass}`}
+      className={`bg-gray rounded-l-[3rem] w-full flex flex-col gap-10 py-6 pl-10 ${customClass}`}
     >
-      <div className="flex flex-col gap-4">
-        <BulletTitle>ایران ریسرچر</BulletTitle>
-        <span className="text-primary-l1">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-          از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
-          سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
-          متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه
-          درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد سوالات
-          پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-        </span>
+      <div
+        className={`w-full pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] gap-6 flex flex-col`}
+      >
+        <div className="flex flex-col gap-4 w-full">
+          <BulletTitle>ایران ریسرچر</BulletTitle>
+          <span className="text-primary-l1">
+            ایران ریسرچر با کمک شما به دنبال اعداد و داده های معتبری هست که مشخص
+            میکنند در مقاطع زمانی مختلف نیازهای مردم ایران در هر حوزه به چه صورت
+            برطرف می شود. امیدواریم این حرکت به تصمیم گیری ها و اولویت بندی های
+            بهتر مسئولان، فعالان اجتماعی و سایر بازیگران هر حوزه منجر شود.
+          </span>
+        </div>
+        <div className="flex gap-24 w-full ">
+          <NewsLetter />
+          <SocialMedia />
+        </div>
       </div>
-      <div className="flex gap-24 w-full ">
-        <NewsLetter />
-        <SocialMedia />
+      <div className="w-full bg-black-t50 text-white rounded-l-xl flex  pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] p-2 justify-between items-center">
+        <span>all copyright (c) 2023 reserved</span>
+        <span>IRAN RESEARCHER</span>
       </div>
-      {/* <div></div> */}
     </div>
   );
 }
