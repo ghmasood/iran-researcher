@@ -6,8 +6,11 @@ import FooterCommentSection from "./components/CommentSection";
 function Footer() {
   return (
     <footer className="flex w-full items-center gap-8 pl-[2rem] sm:pl-[4rem] lg:pl-[6rem] xl:pl-[12.75rem] mt-auto mb-8">
-      <AboutMenuSection customClass="w-2/3" />
-      <FooterCommentSection lastComments={comments} customClass="w-1/3" />
+      <AboutMenuSection customClass="w-full lg:w-2/3" />
+      <FooterCommentSection
+        lastComments={comments}
+        customClass="hidden lg:w-1/3 lg:flex"
+      />
     </footer>
   );
 }

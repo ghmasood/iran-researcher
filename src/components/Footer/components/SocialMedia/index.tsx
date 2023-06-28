@@ -8,7 +8,7 @@ interface ISocialMediaProps {
 }
 function SocialMedia({ customClass = "" }: ISocialMediaProps) {
   return (
-    <div className="flex flex-col justify-between w-1/2">
+    <div className="flex flex-col justify-between gap-4 w-1/2">
       <BulletTitle>سوشال مدیا</BulletTitle>
       <div className="flex gap-2 rounded-xl">
         <Link

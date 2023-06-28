@@ -11,7 +11,7 @@ function NewsLetter({ customClass = "" }: INewsLetterProps) {
   const [email, setEmail] = useState("");
 
   return (
-    <div className="flex flex-col gap-4 w-1/2 ">
+    <div className="flex flex-col gap-4 w-full md:w-1/2 ">
       <BulletTitle>خبرنامه</BulletTitle>
       <BasicInput
         plchldr="ایمیل خود را وارد کنید "

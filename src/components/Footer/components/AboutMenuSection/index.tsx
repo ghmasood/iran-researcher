@@ -22,13 +22,13 @@ function AboutMenuSection({ customClass = "" }: { customClass?: string }) {
             بهتر مسئولان، فعالان اجتماعی و سایر بازیگران هر حوزه منجر شود.
           </span>
         </div>
-        <div className="flex gap-24 w-full ">
+        <div className="flex flex-col md:flex-row gap-x-24 gap-y-8 w-full ">
           <NewsLetter />
           <SocialMedia />
         </div>
       </div>
-      <div className="w-full bg-black-t50 text-white rounded-l-xl flex  pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] p-2 justify-between items-center">
-        <span>all copyright (c) 2023 reserved</span>
+      <div className="w-full bg-dark-t05 text-primary rounded-l-xl flex  pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] p-2 justify-between">
+        <span style={{ direction: "ltr" }}>© 2023, All Rights Reserved</span>
         <span>IRAN RESEARCHER</span>
       </div>
     </div>
