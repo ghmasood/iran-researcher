@@ -10,7 +10,7 @@ function SocialMedia({ customClass = "" }: ISocialMediaProps) {
   return (
     <div className="flex flex-col justify-between gap-4 w-1/2">
       <BulletTitle>سوشال مدیا</BulletTitle>
-      <div className="flex gap-2 rounded-xl">
+      <div className="flex gap-4 rounded-xl">
         <Link
           className="bg-gradient-to-tr from-[#0a66c2] to-[#004182] rounded-lg"
           href="https://www.linkedin.com/company/iresearcher/"

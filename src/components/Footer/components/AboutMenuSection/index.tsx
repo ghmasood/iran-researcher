@@ -1,14 +1,12 @@
 import BulletTitle from "components/BulletTitle";
-import BasicInput from "components/‌‌‌‌BasicInput";
-import React, { useState } from "react";
-import icons from "utils";
+import React from "react";
 import NewsLetter from "../NewsLetter";
 import SocialMedia from "../SocialMedia";
 
 function AboutMenuSection({ customClass = "" }: { customClass?: string }) {
   return (
     <div
-      className={`bg-gray rounded-l-[3rem] w-full flex flex-col gap-10 py-6 pl-10 ${customClass}`}
+      className={`bg-gray rounded-l-[3rem] w-full flex flex-col gap-14 py-10 pl-10 ${customClass}`}
     >
       <div
         className={`w-full pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] gap-6 flex flex-col`}
@@ -27,9 +25,16 @@ function AboutMenuSection({ customClass = "" }: { customClass?: string }) {
           <SocialMedia />
         </div>
       </div>
-      <div className="w-full bg-dark-t05 text-primary rounded-l-xl flex  pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] p-2 justify-between">
-        <span style={{ direction: "ltr" }}>© 2023, All Rights Reserved</span>
-        <span>IRAN RESEARCHER</span>
+      <div className="w-full bg-dark-t05 text-dark-t50 text-lg font-thin rounded-l-xl flex flex-col-reverse sm:flex-row items-center  pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] p-2 justify-between">
+        <span
+          className="align-middle self-center my-auto"
+          style={{ direction: "ltr" }}
+        >
+          © 2023, All Rights Reserved
+        </span>
+        <span className="align-middle self-center my-auto tracking-[0.25rem]">
+          IRAN RESEARCHER
+        </span>
       </div>
     </div>
   );
