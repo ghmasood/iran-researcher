@@ -2,7 +2,7 @@
 import BulletTitle from "components/BulletTitle";
 import BasicInput from "components/‌‌‌‌BasicInput";
 import React, { useState } from "react";
-import icons from "utils";
+import icons from "utils/icons";
 
 interface INewsLetterProps {
   customClass?: string;

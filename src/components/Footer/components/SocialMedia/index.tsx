@@ -1,7 +1,7 @@
 import BulletTitle from "components/BulletTitle";
 import Link from "next/link";
 import React from "react";
-import icons from "utils";
+import icons from "utils/icons";
 import styles from "./social.module.scss";
 import clsx from "clsx";
 

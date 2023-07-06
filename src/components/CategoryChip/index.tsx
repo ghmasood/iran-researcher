@@ -12,7 +12,6 @@ function CategoryChip({
   category,
   link,
   bgImage,
-  title,
 }: ICategoryChipProps) {
   return (
     <Link
@@ -29,7 +28,7 @@ function CategoryChip({
        w-full text-2xl font-extrabold"
       >
         <span className="font-extralight">#</span>
-        <span>{title}</span>
+        <span>{category}</span>
       </span>
       <Image
         src={bgImage}

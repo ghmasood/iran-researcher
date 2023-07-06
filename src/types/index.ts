@@ -5,17 +5,26 @@ export interface ILogo extends SVGProps<SVGSVGElement> {
 }
 
 export enum categories {
-  FOOD,
-  ANIMAL,
-  CAR,
-  SPORT,
-  MUSIC,
-  TECHNOLOGY,
+  EDUCATION = "آموزش و پرورش",
+  COMMUNICATION = "ارتباطات",
+  SECURITY = "امنیت",
+  ECONOMIC = "اقتصادی",
+  HEALTH = "بهداشت و سلامت",
+  WORKـWELFARE = "کار و رفاه",
+  NUTRITION = " تغذیه",
+  JUSTICE = "عدالت",
+  CITY_SERVICE = "راه و خدمات شهری",
+  BUSINESS = "کسب و کار",
+  SCIENCE_TECH = "علم و فناوری",
+  CULTURAL = "فرهنگی",
+  TOURISM = "گردشگری",
+  FORCE = "نیرو",
+  YOUTH = "جوانان",
+  NATURAL_ENVIRONMENT = "محیط زیست",
 }
 
 export interface ICategoryChip {
   category: categories;
-  title: string;
   bgImage: string;
   link: string;
 }

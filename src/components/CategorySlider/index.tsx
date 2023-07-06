@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { ICategorySlider } from "types";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import icons from "utils";
+import icons from "utils/icons";
 
 interface ICategorySliderProps extends ICategorySlider {
   customClass?: string;
@@ -26,9 +26,9 @@ function CategorySlider({
       setLoaded(true);
     },
     slides: {
-      perView: 6,
-      spacing: 15,
-      number: 12,
+      perView: 8,
+      spacing: 6,
+      number: 16,
     },
   });
   return (
@@ -42,7 +42,6 @@ function CategorySlider({
             customClass={`keen-slider__slide`}
             key={item.category + index}
             category={item.category}
-            title={item.title}
             bgImage={item.bgImage}
             link={item.link}
           />
