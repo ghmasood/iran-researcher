@@ -1,16 +1,21 @@
 import clsx from "clsx";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { categories } from "types";
+import { DateTime } from "luxon";
+import Link from "next/link";
+import { ArchiveAdd } from "iconsax-react";
+import SaveBtn from "./components/SaveBtn";
 
 interface IPostCardProps {
   customClass?: string;
   CoverImg: string;
   title: string;
   desc: string;
-  date: Date;
+  date: string;
   kind: "col" | "row";
   category: categories;
+  link: string;
 }
 function PostCard({
   title,
@@ -19,17 +24,20 @@ function PostCard({
   desc,
   CoverImg,
   category,
+  link,
   customClass = "",
 }: IPostCardProps) {
+  //Vase link category bayad subLink is link post begiram
   return (
     <div
       className={clsx([
-        "flex bg-white drop-shadow-md p-2.5 gap-2.5 rounded-xl",
+        "flex bg-white drop-shadow-md p-2.5 gap-2 rounded-xl",
         kind === "col" ? "flex-col" : "flex-row",
         customClass,
       ])}
     >
-      <div
+      <Link
+        href={link}
         className={clsx([
           "relative aspect-[3/2] shrink-0",
           kind === "col" ? "w-full" : "w-1/2",
@@ -41,26 +49,44 @@ function PostCard({
           fill
           className="object-cover rounded-lg"
         />
-      </div>
-      <div className="flex flex-col justify-between items-center p-1.5 gap-2">
-        <h2 className="text-primary text-lg font-semibold hover:text-primary-l2 transition-colors duration-300 cursor-pointer">
+      </Link>
+      <div className="flex flex-col justify-around items-center p-1.5 gap-2">
+        <Link
+          href={link}
+          className="text-primary text-lg font-semibold hover:text-primary-l2 transition-colors duration-300 cursor-pointer"
+        >
           {title}
-        </h2>
-        <p className="line-clamp-3 text-base font-light">{desc}</p>
-        <div className="bg-gray w-full flex  gap-3 rounded-xl p-1">
-          <div className="h-10 w-10 relative bg-primary rounded-xl">
+        </Link>
+        <p className="line-clamp-2 text-base font-light">{desc}</p>
+        <div className="bg-gray w-full flex items-center gap-4 rounded-xl py-1 px-2">
+          <div className="h-11 w-11 relative bg-primary rounded-lg">
             <Image
               src="./logo.svg"
               alt="iran researcher"
               fill
-              className="p-1 brightness-0 invert"
+              className="p-2 brightness-0 invert"
             />
           </div>
-          <div className="flex flex-col justify-between">
-            <span className="text-sm font-light">{category}</span>
+          <div className="flex flex-col justify-between gap-1">
+            <Link
+              href={"#"}
+              className="text-sm font-medium text-primary hover:text-primary-l2 duration-300 transition-colors"
+            >
+              {category}
+            </Link>
             <span className="text-sm font-light">
-              {date.toLocaleTimeString()}
+              {DateTime.fromISO(date)
+                .setZone("Asia/Tehran")
+                .setLocale("fa-IR")
+                .toLocaleString({
+                  month: "long",
+                  year: "numeric",
+                  day: "2-digit",
+                })}
             </span>
+          </div>
+          <div className="mr-auto px-2">
+            <SaveBtn />
           </div>
         </div>
       </div>

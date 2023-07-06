@@ -9,6 +9,7 @@ export default function Home() {
       <CategorySlider categories={mockData2} />
       <div className="flex flex-col gap-10 my-8">
         <PostCard
+          link="#"
           category={categories.BUSINESS}
           customClass="w-[360px]"
           CoverImg={
@@ -20,10 +21,11 @@ export default function Home() {
           desc={
             "نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد.نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد."
           }
-          date={new Date()}
+          date={new Date().toISOString()}
           kind={"col"}
         />
         <PostCard
+          link="#"
           category={categories.EDUCATION}
           customClass="w-[744px]"
           CoverImg={
@@ -35,7 +37,7 @@ export default function Home() {
           desc={
             "نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد.نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد."
           }
-          date={new Date()}
+          date={new Date().toISOString()}
           kind={"row"}
         />
       </div>
