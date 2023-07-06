@@ -1,0 +1,27 @@
+.btn {
+  border-radius: 0.825rem;
+  transition: 1.5s;
+  background: linear-gradient(45deg, var(--c1), var(--c2) 50%, var(--c1))
+    var(--x, 0) / 400%;
+  &:hover {
+    --x: 100%;
+  }
+}
+
+.linkedin {
+  --c1: rgba(10, 102, 194, 1);
+  --c2: rgba(0, 65, 130, 1);
+}
+
+.twitter {
+  --c1: #2ca5e0;
+  --c2: #67c9f5;
+}
+.insta {
+  --c1: #ff7563;
+  --c2: #f45c9f;
+}
+.telegram {
+  --c1: #2aabee;
+  --c2: #229ed9;
+}
