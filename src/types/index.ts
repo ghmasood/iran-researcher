@@ -38,3 +38,13 @@ export interface IFooterCommentItem {
   text: string;
   link: string;
 }
+
+export interface IPostCard {
+  CoverImg: string;
+  title: string;
+  desc: string;
+  date: string;
+  kind: "col" | "row";
+  category: categories;
+  link: string;
+}

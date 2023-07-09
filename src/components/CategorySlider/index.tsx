@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import CategoryChip from "components/CategoryChip";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ICategorySlider } from "types";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -28,7 +28,6 @@ function CategorySlider({
   const isXl = useWidth(1280);
   const is2xl = useWidth(1536);
   const is3xl = useWidth(1600);
-
   const perView = is2Xs
     ? 1
     : isXs
@@ -59,14 +58,17 @@ function CategorySlider({
     slides: {
       perView: perView,
       spacing: 6,
-      number: 16,
     },
   });
 
   return (
     <div className="bg-gray p-2 rounded-xl">
       <div
-        className={clsx(["keen-slider relative", customClass])}
+        className={clsx([
+          "keen-slider relative",
+          !loaded && "skeleton",
+          customClass,
+        ])}
         ref={sliderRef}
       >
         {categories.map((item, index) => (
