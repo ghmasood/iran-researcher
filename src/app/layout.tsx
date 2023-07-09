@@ -1,8 +1,8 @@
-import "./globals.css";
+import "../assets/styles/globals.scss";
 import localFont from "next/font/local";
 
 const dana = localFont({
-  src: "fonts/dana2webGX.woff",
+  src: "../assets/fonts/dana2webGX.woff",
   variable: "--font-dana",
 });
 
