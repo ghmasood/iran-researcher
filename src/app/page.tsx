@@ -9,8 +9,8 @@ export default function Home() {
     <LayoutComponent>
       <CategorySlider categories={mockData2} />
       <div className="flex flex-col gap-10 my-8">
-        <PostSectionCol posts={pdata} />
-        {/* <PostCard
+        <PostSectionCol posts={pdata} sectionTitle="پست‌های اخیر" />
+        <PostCard
           link="#"
           category={categories.EDUCATION}
           customClass="w-[744px]"
@@ -25,7 +25,7 @@ export default function Home() {
           }
           date={new Date().toISOString()}
           kind={"row"}
-        /> */}
+        />
       </div>
     </LayoutComponent>
   );

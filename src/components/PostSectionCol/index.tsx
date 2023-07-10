@@ -7,12 +7,18 @@ import "keen-slider/keen-slider.min.css";
 import { IPostCard } from "types";
 import useWidth from "hooks/useWidth";
 import icons from "utils/icons";
+import BulletTitle from "components/BulletTitle";
 
 interface IPostSectionColProps {
   customClass?: string;
   posts: IPostCard[];
+  sectionTitle: string;
 }
-function PostSectionCol({ posts, customClass = "" }: IPostSectionColProps) {
+function PostSectionCol({
+  sectionTitle,
+  posts,
+  customClass = "",
+}: IPostSectionColProps) {
   //STATES
   const [curSlide, setCurSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -49,69 +55,76 @@ function PostSectionCol({ posts, customClass = "" }: IPostSectionColProps) {
 
     slides: slidesConfig,
   });
+  let arrowState = { isFirst: true, isLast: false };
+  if (loaded && instanceRef.current) {
+    arrowState = {
+      isFirst: curSlide === 0,
+      isLast:
+        curSlide >=
+        instanceRef.current.track.details.slides.length - slidesConfig.perView,
+    };
+  }
   return (
-    <div
-      ref={sliderRef}
-      className={clsx([
-        "keen-slider relative ",
-        !loaded && "skeleton",
-        customClass,
-      ])}
-    >
-      {posts.map((p, index) => {
-        return (
-          <PostCard
-            customClass="keen-slider__slide"
-            key={p.title + index}
-            CoverImg={p.CoverImg}
-            title={p.title}
-            desc={p.desc}
-            date={p.date}
-            kind={p.kind}
-            category={p.category}
-            link={p.link}
-          />
-        );
-      })}
-      {loaded && instanceRef.current && (
-        <>
-          <div
-            className={clsx([
-              "transition-all duration-500 absolute -right-2 bg-gradient-to-l from-white via-white/95 to-transparent w-14 h-[200%] top-1/2 -translate-y-1/2 flex items-center justify-start",
-              ,
-              curSlide === 0 && "opacity-0 -z-10",
-            ])}
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center justify-between px-2">
+        <BulletTitle>{sectionTitle}</BulletTitle>
+        <div className="flex gap-2">
+          <span
+            onClick={(e: any) => {
+              e.stopPropagation() || instanceRef.current?.prev();
+            }}
+            className={
+              arrowState.isFirst ? "cursor-not-allowed" : "cursor-pointer"
+            }
           >
-            {/* <span
-              onClick={(e: any) => {
-                e.stopPropagation() || instanceRef.current?.prev();
-              }}
-              className="cursor-pointer"
-            >
-              {icons.arrow("", "")}
-            </span> */}
-          </div>
+            {icons.chevronFilledR(
+              "",
+              "",
+              `transition-all duration-500 ${
+                arrowState.isFirst ? "fill-dark-t25" : "fill-dark"
+              }`
+            )}
+          </span>
 
-          <div
-            className={clsx([
-              "transition-all duration-500 absolute -left-2 bg-gradient-to-r from-white via-white/95 to-transparent w-14 h-[200%] top-1/2 -translate-y-1/2 flex items-center justify-end",
-              ,
-              curSlide >=
-                instanceRef.current.track.details.slides.length -
-                  slidesConfig.perView && "opacity-0 -z-10",
-            ])}
+          <span
+            onClick={(e: any) => {
+              e.stopPropagation() || instanceRef.current?.next();
+            }}
+            className={
+              arrowState.isLast ? "cursor-not-allowed" : "cursor-pointer"
+            }
           >
-            {/* <span
-              onClick={(e: any) => {
-                e.stopPropagation() || instanceRef.current?.next();
-              }}
-              className="cursor-pointer"
-            >
-              {icons.arrow("rotate-180", "")}
-            </span> */}
-          </div>
-        </>
-      )}
+            {icons.chevronFilledR(
+              "rotate-180",
+              "",
+              `transition-all duration-500 ${
+                arrowState.isLast ? "fill-dark-t25" : "fill-dark"
+              }`
+            )}
+          </span>
+        </div>
+      </div>
+
+      <div
+        ref={sliderRef}
+        className={clsx(["keen-slider", !loaded && "skeleton", customClass])}
+      >
+        {posts.map((p, index) => {
+          return (
+            <PostCard
+              customClass="keen-slider__slide"
+              key={p.title + index}
+              CoverImg={p.CoverImg}
+              title={p.title}
+              desc={p.desc}
+              date={p.date}
+              kind={p.kind}
+              category={p.category}
+              link={p.link}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

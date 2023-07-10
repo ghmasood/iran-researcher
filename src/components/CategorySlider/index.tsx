@@ -45,7 +45,6 @@ function CategorySlider({
     : is3xl
     ? 5.5
     : 8;
-
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
     rtl: true,
