@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 
 import clsx from "clsx";
 import { useKeenSlider } from "keen-slider/react";
@@ -24,8 +24,8 @@ function CategorySlider({
   const [loaded, setLoaded] = useState(false);
   const [wdth, setWdth] = useState(0);
 
-  //LIFECYCLE HOOK
-  useEffect(() => {
+  // LIFECYCLE HOOK
+  useLayoutEffect(() => {
     setWdth(window.innerWidth);
   }, []);
 
@@ -47,7 +47,6 @@ function CategorySlider({
       spacing: 6,
     },
   });
-
   return (
     <div className="bg-gray p-2 rounded-xl">
       <div

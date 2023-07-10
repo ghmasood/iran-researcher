@@ -17,8 +17,10 @@ export function PerViewHandler(
   });
 
   const perView =
-    wdth < 640
+    wdth < 440
       ? 1
+      : wdth < 640
+      ? 1.5
       : wdth < 768
       ? 2
       : wdth < 1024

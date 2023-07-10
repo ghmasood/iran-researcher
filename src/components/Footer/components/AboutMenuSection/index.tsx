@@ -10,7 +10,7 @@ function AboutMenuSection({ customClass = "" }: { customClass?: string }) {
       className={`bg-gray rounded-l-[3rem] w-full flex flex-col gap-14 py-10 pl-10 ${customClass}`}
     >
       <div
-        className={`w-full pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] gap-6 flex flex-col`}
+        className={`w-full pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[9rem] 2xl:pr-[11.5rem] gap-6 flex flex-col`}
       >
         <div className="flex flex-col gap-4 w-full">
           <BulletTitle>ایران ریسرچر</BulletTitle>
@@ -26,7 +26,7 @@ function AboutMenuSection({ customClass = "" }: { customClass?: string }) {
           <SocialMedia />
         </div>
       </div>
-      <div className="w-full bg-dark-t05 text-dark-t50 text-lg font-thin rounded-l-xl flex flex-col-reverse sm:flex-row items-center  pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[12.75rem] p-2 justify-between">
+      <div className="w-full bg-dark-t05 text-dark-t50 text-lg font-thin rounded-l-xl flex flex-col-reverse sm:flex-row items-center  pr-[2rem] sm:pr-[4rem] lg:pr-[6rem] xl:pr-[9rem] 2xl:pr-[11.5rem] p-2 justify-between">
         <span
           className="align-middle self-center my-auto"
           style={{ direction: "ltr" }}

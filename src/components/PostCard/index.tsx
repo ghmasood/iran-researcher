@@ -28,15 +28,15 @@ function PostCard({
     <div className={clsx(["p-2", customClass])}>
       <div
         className={clsx([
-          "flex bg-white drop-shadow-md p-2.5 gap-2 rounded-xl",
-          kind === "col" ? "flex-col" : "flex-row",
+          "flex bg-white drop-shadow-md p-2.5 gap-2 rounded-xl h-full",
+          kind === "col" ? "flex-col h-[28rem]" : "flex-row h-[15rem]",
         ])}
       >
         <Link
           href={link}
           className={clsx([
             "relative aspect-[3/2] shrink-0",
-            kind === "col" ? "w-full" : "w-1/2",
+            kind === "col" ? "h-[12rem]" : "w-1/2",
           ])}
         >
           <Image
@@ -46,16 +46,16 @@ function PostCard({
             className="object-cover rounded-lg"
           />
         </Link>
-        <div className="flex flex-col justify-around items-center p-1.5 gap-2">
+        <div className="flex flex-col h-full items-center p-1.5 gap-2 justify-between">
           <Link
             href={link}
             className="text-primary text-lg font-semibold hover:text-primary-l2 transition-colors duration-300 cursor-pointer"
           >
             {title}
           </Link>
-          <p className="line-clamp-2 text-base font-light">{desc}</p>
-          <div className="bg-gray w-full flex items-center gap-4 rounded-xl py-1 px-2">
-            <div className="h-11 w-11 relative bg-primary rounded-lg">
+          <p className="text-base font-light line-clamp-2">{desc}</p>
+          <div className="bg-gray w-full flex items-center gap-2 rounded-xl py-1 px-2 h-[3.25rem]">
+            <div className="md:h-11 md:w-11 relative bg-primary rounded-lg">
               <Image
                 src="./logo.svg"
                 alt="iran researcher"

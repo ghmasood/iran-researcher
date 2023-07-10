@@ -7,7 +7,7 @@ import type { IFooterCommentItem } from "types";
 
 function Footer() {
   return (
-    <footer className="flex w-full items-center gap-8 pl-[2rem] sm:pl-[4rem] lg:pl-[6rem] xl:pl-[12.75rem] mt-auto mb-8">
+    <footer className="flex w-full items-center gap-8 pl-[2rem] sm:pl-[4rem] lg:pl-[6rem] xl:pl-[9rem] 2xl:pl-[11.5rem] mt-auto mb-8">
       <AboutMenuSection customClass="w-full lg:w-2/3" />
       <FooterCommentSection
         lastComments={comments}

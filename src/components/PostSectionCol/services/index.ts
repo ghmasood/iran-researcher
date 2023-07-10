@@ -22,12 +22,16 @@ export function SlideConfigsHandler(
       : wdth < 640
       ? { perView: 1.4, spacing: 8 }
       : wdth < 768
-      ? { perView: 2, spacing: 12 }
+      ? { perView: 2, spacing: 10 }
+      : wdth < 900
+      ? { perView: 2.2, spacing: 12 }
       : wdth < 1024
-      ? { perView: 2.5, spacing: 16 }
-      : wdth < 1536
-      ? { perView: 3, spacing: 20 }
-      : { perView: 4, spacing: 24 };
+      ? { perView: 2.5, spacing: 14 }
+      : wdth < 1200
+      ? { perView: 2.8, spacing: 16 }
+      : wdth < 1440
+      ? { perView: 3, spacing: 16}
+      : { perView: 4, spacing: 16 };
 
   return config;
 }

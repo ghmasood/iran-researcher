@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 
 import clsx from "clsx";
 import { useKeenSlider } from "keen-slider/react";
@@ -28,8 +28,8 @@ function PostSectionCol({
   const [loaded, setLoaded] = useState(false);
   const [wdth, setWdth] = useState(0);
 
-  //LIFECYCLE HOOK
-  useEffect(() => {
+  // LIFECYCLE HOOK
+  useLayoutEffect(() => {
     setWdth(window.innerWidth);
   }, []);
 
@@ -104,7 +104,11 @@ function PostSectionCol({
 
       <div
         ref={sliderRef}
-        className={clsx(["keen-slider", !loaded && "skeleton", customClass])}
+        className={clsx([
+          "keen-slider flex !justify-stretch",
+          !loaded && "skeleton",
+          customClass,
+        ])}
       >
         {posts.map((p, index) => {
           return (

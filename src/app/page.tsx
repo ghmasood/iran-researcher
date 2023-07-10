@@ -19,7 +19,7 @@ export default function Home() {
             "https://mwallpaper.ir/wp-content/uploads/2021/10/%D9%88%D8%A7%D9%84%D9%BE%DB%8C%D9%BE%D8%B1-%D9%84%D9%BE-%D8%AA%D8%A7%D9%BE-%D8%A8%D8%A7-%D8%AA%D9%85-%D8%B1%D9%86%DA%AF-%D8%A8%D9%86%D9%81%D8%B4.jpg"
           }
           title={
-            "محبوب‌ترین نسخه اندروید و محبوب‌ترین مرورگر میان کاربران این سیستم‌عامل کدام است؟"
+            "محبوب‌ترین نسخه اندروید و مرورگر میان کاربران این سیستم‌عامل کدام است؟"
           }
           desc={
             "نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد.نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد."
@@ -40,15 +40,19 @@ const mockData2: ICategoryChip[] = Object.values(categories).map((item, _) => ({
   category: item,
 }));
 
-const pdata: IPostCard[] = new Array(6).fill({
+const pdata: IPostCard[] = [...new Array(8)].map((item, index) => ({
   link: "#",
   category: categories.EDUCATION,
   customClass: "w-[744px]",
   CoverImg:
-    "https://mwallpaper.ir/wp-content/uploads/2021/10/%D9%88%D8%A7%D9%84%D9%BE%DB%8C%D9%BE%D8%B1-%D9%84%D9%BE-%D8%AA%D8%A7%D9%BE-%D8%A8%D8%A7-%D8%AA%D9%85-%D8%B1%D9%86%DA%AF-%D8%A8%D9%86%D9%81%D8%B4.jpg",
+    index % 2 === 1
+      ? "https://api2.zoomit.ir/media/apple-vision-pro-front-view-woman-647e28c7896c1bcf59b7dcff"
+      : "https://mwallpaper.ir/wp-content/uploads/2021/10/%D9%88%D8%A7%D9%84%D9%BE%DB%8C%D9%BE%D8%B1-%D9%84%D9%BE-%D8%AA%D8%A7%D9%BE-%D8%A8%D8%A7-%D8%AA%D9%85-%D8%B1%D9%86%DA%AF-%D8%A8%D9%86%D9%81%D8%B4.jpg",
   title:
-    "محبوب‌ترین نسخه اندروید و محبوب‌ترین مرورگر میان کاربران این سیستم‌عامل کدام است؟",
+    index % 2 === 0
+      ? "محبوب‌ترین نسخه اندروید و محبوب‌ترین مرورگر میان کاربران این سیستم‌عامل کدام است؟"
+      : "ویژن پرو ممکن است هرگز به آیفون بعدی اپل تبدیل نشود",
   desc: "نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد.نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد.",
-  date: new Date().toISOString(),
+  date: "2022-04-18T23:27:27.626Z",
   kind: "col",
-});
+}));
