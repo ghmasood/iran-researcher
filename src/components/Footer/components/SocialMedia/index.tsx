@@ -1,13 +1,17 @@
-import BulletTitle from "components/BulletTitle";
-import Link from "next/link";
 import React from "react";
-import icons from "utils/icons";
-import styles from "./social.module.scss";
+import Link from "next/link";
+
 import clsx from "clsx";
+
+import BulletTitle from "components/BulletTitle";
+import icons from "utils/icons";
+
+import styles from "./social.module.scss";
 
 interface ISocialMediaProps {
   customClass?: string;
 }
+
 function SocialMedia({ customClass = "" }: ISocialMediaProps) {
   return (
     <div className={`flex flex-col justify-between gap-4 w-1/2 ${customClass}`}>

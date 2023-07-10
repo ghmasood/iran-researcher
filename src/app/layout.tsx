@@ -1,5 +1,7 @@
+import Footer from "components/Footer";
 import "../assets/styles/globals.scss";
 import localFont from "next/font/local";
+import LayoutComponent from "components/Layout";
 
 const dana = localFont({
   src: "../assets/fonts/dana2webGX.woff",
@@ -19,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${dana.className}`}>{children}</body>
+      <body className={`${dana.className}`}>
+        <LayoutComponent>{children}</LayoutComponent>
+      </body>
     </html>
   );
 }

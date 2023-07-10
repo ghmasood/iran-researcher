@@ -1,6 +1,7 @@
-import Link from "next/link";
 import React from "react";
-import { IFooterCommentItem } from "types";
+import Link from "next/link";
+
+import type { IFooterCommentItem } from "types";
 
 function FooterCommentItem({ text, link, author }: IFooterCommentItem) {
   return (

@@ -1,17 +1,19 @@
 "use client";
+import React, { useState } from "react";
+
 import BulletTitle from "components/BulletTitle";
 import BasicInput from "components/‌‌‌‌BasicInput";
-import React, { useState } from "react";
 import icons from "utils/icons";
 
 interface INewsLetterProps {
   customClass?: string;
 }
 function NewsLetter({ customClass = "" }: INewsLetterProps) {
+  //STATES
   const [email, setEmail] = useState("");
 
   return (
-    <div className="flex flex-col gap-4 w-full md:w-1/2 ">
+    <div className={`flex flex-col gap-4 w-full md:w-1/2 ${customClass}`}>
       <BulletTitle>خبرنامه</BulletTitle>
       <BasicInput
         plchldr="ایمیل خود را وارد کنید "

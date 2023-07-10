@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import React, { ReactNode } from "react";
+
+import clsx from "clsx";
 
 interface IBasicInputProps {
   customClass?: string;
@@ -9,6 +10,7 @@ interface IBasicInputProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
   val: string | number | readonly string[] | undefined;
 }
+
 function BasicInput({
   LIcon,
   RIcon,

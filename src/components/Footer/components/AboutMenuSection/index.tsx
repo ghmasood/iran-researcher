@@ -1,5 +1,6 @@
-import BulletTitle from "components/BulletTitle";
 import React from "react";
+
+import BulletTitle from "components/BulletTitle";
 import NewsLetter from "../NewsLetter";
 import SocialMedia from "../SocialMedia";
 

@@ -1,8 +1,10 @@
-import clsx from "clsx";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { ICategoryChip } from "types";
+
+import clsx from "clsx";
+
+import type { ICategoryChip } from "types";
 
 interface ICategoryChipProps extends ICategoryChip {
   customClass?: string;

@@ -1,13 +1,17 @@
 "use client";
+import React, { useEffect, useState } from "react";
+
 import clsx from "clsx";
-import PostCard from "components/PostCard";
 import { useKeenSlider } from "keen-slider/react";
-import React, { useState } from "react";
 import "keen-slider/keen-slider.min.css";
-import { IPostCard } from "types";
-import useWidth from "hooks/useWidth";
-import icons from "utils/icons";
+
+import PostCard from "components/PostCard";
 import BulletTitle from "components/BulletTitle";
+import icons from "utils/icons";
+
+import { SlideConfigsHandler } from "./services";
+
+import type { IPostCard } from "types";
 
 interface IPostSectionColProps {
   customClass?: string;
@@ -22,27 +26,17 @@ function PostSectionCol({
   //STATES
   const [curSlide, setCurSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const [wdth, setWdth] = useState(0);
 
-  //CUSTOM HOOK
+  //LIFECYCLE HOOK
+  useEffect(() => {
+    setWdth(window.innerWidth);
+  }, []);
 
-  const isXs = useWidth(475);
-  const isSm = useWidth(640);
-  const isMd = useWidth(768);
-  const isLg = useWidth(1024);
-  const is2xl = useWidth(1536);
+  //PERVIEW FOR SLIDER
+  const slidesConfig = SlideConfigsHandler(wdth, setWdth);
 
-  const slidesConfig = isXs
-    ? { perView: 1, spacing: 2 }
-    : isSm
-    ? { perView: 1.4, spacing: 8 }
-    : isMd
-    ? { perView: 2, spacing: 12 }
-    : isLg
-    ? { perView: 2.5, spacing: 16 }
-    : is2xl
-    ? { perView: 3, spacing: 20 }
-    : { perView: 4, spacing: 24 };
-
+  //SLIDERCONFIG
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
     rtl: true,
@@ -55,6 +49,8 @@ function PostSectionCol({
 
     slides: slidesConfig,
   });
+
+  //ARROWS STATE HANDLER
   let arrowState = { isFirst: true, isLast: false };
   if (loaded && instanceRef.current) {
     arrowState = {
@@ -64,6 +60,7 @@ function PostSectionCol({
         instanceRef.current.track.details.slides.length - slidesConfig.perView,
     };
   }
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between px-2">

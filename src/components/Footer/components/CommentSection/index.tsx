@@ -1,7 +1,9 @@
-import BulletTitle from "components/BulletTitle";
 import React from "react";
+
+import BulletTitle from "components/BulletTitle";
 import FooterCommentItem from "./FooterCommentItem";
-import { IFooterCommentItem } from "types";
+
+import type { IFooterCommentItem } from "types";
 
 function FooterCommentSection({
   customClass = "",

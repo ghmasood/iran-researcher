@@ -1,12 +1,16 @@
 "use client";
+import React, { useEffect, useState } from "react";
+
 import clsx from "clsx";
-import CategoryChip from "components/CategoryChip";
-import React, { useState } from "react";
-import { ICategorySlider } from "types";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+
+import CategoryChip from "components/CategoryChip";
 import icons from "utils/icons";
-import useWidth from "hooks/useWidth";
+
+import { PerViewHandler } from "./services";
+
+import type { ICategorySlider } from "types";
 
 interface ICategorySliderProps extends ICategorySlider {
   customClass?: string;
@@ -18,33 +22,17 @@ function CategorySlider({
   //STATES
   const [curSlide, setCurSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const [wdth, setWdth] = useState(0);
 
-  //CUSTOM HOOK
-  const is2Xs = useWidth(345);
-  const isXs = useWidth(475);
-  const isSm = useWidth(640);
-  const isMd = useWidth(768);
-  const isLg = useWidth(1024);
-  const isXl = useWidth(1280);
-  const is2xl = useWidth(1536);
-  const is3xl = useWidth(1600);
-  const perView = is2Xs
-    ? 1
-    : isXs
-    ? 1
-    : isSm
-    ? 2
-    : isMd
-    ? 2.5
-    : isLg
-    ? 3
-    : isXl
-    ? 4
-    : is2xl
-    ? 4.5
-    : is3xl
-    ? 5.5
-    : 8;
+  //LIFECYCLE HOOK
+  useEffect(() => {
+    setWdth(window.innerWidth);
+  }, []);
+
+  //PERVIEW FOR SLIDER
+  const perView = PerViewHandler(wdth, setWdth);
+
+  //SLIDERCONFIG
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
     rtl: true,

@@ -1,5 +1,6 @@
 import * as React from "react";
-import { ILogo } from "types";
+
+import type { ILogo } from "types";
 
 const Logo = ({ pathClassName, ...props }: ILogo) => (
   <svg

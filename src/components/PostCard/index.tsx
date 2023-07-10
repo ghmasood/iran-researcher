@@ -1,14 +1,18 @@
-import clsx from "clsx";
-import Image from "next/image";
 import React from "react";
-import { IPostCard } from "types";
-import { DateTime } from "luxon";
+import Image from "next/image";
 import Link from "next/link";
+
+import clsx from "clsx";
+import { DateTime } from "luxon";
+
 import SaveBtn from "./components/SaveBtn";
+
+import type { IPostCard } from "types";
 
 interface IPostCardProps extends IPostCard {
   customClass?: string;
 }
+
 function PostCard({
   title,
   link,

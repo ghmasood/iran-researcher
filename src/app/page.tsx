@@ -2,11 +2,12 @@ import CategorySlider from "components/CategorySlider";
 import LayoutComponent from "components/Layout";
 import PostCard from "components/PostCard";
 import PostSectionCol from "components/PostSectionCol";
+
 import { ICategoryChip, IPostCard, categories } from "types";
 
 export default function Home() {
   return (
-    <LayoutComponent>
+    <>
       <CategorySlider categories={mockData2} />
       <div className="flex flex-col gap-10 my-8">
         <PostSectionCol posts={pdata} sectionTitle="پست‌های اخیر" />
@@ -27,10 +28,11 @@ export default function Home() {
           kind={"row"}
         />
       </div>
-    </LayoutComponent>
+    </>
   );
 }
 
+//MOCKDATA
 const mockData2: ICategoryChip[] = Object.values(categories).map((item, _) => ({
   link: "#",
   bgImage:

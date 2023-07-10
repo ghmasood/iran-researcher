@@ -1,7 +1,9 @@
 import React from "react";
+
 import AboutMenuSection from "./components/AboutMenuSection";
-import { IFooterCommentItem } from "types";
 import FooterCommentSection from "./components/CommentSection";
+
+import type { IFooterCommentItem } from "types";
 
 function Footer() {
   return (
@@ -17,6 +19,7 @@ function Footer() {
 
 export default Footer;
 
+//MOCK DATA
 const comments: IFooterCommentItem[] = [
   {
     author: "مسعود",
