@@ -12,6 +12,8 @@ import icons from "utils/icons";
 import { SlideConfigsHandler } from "./services";
 
 import type { IPostCard } from "types";
+import EmblaCarousel, { EmblaOptionsType } from "embla-carousel";
+import Carousel from "components/Carousel";
 
 interface IPostSectionColProps {
   customClass?: string;
@@ -39,15 +41,14 @@ function PostSectionCol({
   //SLIDERCONFIG
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
-    rtl: true,
+    // rtl: true,
     slideChanged(s) {
       setCurSlide(s.track.details.rel);
     },
+    slides: slidesConfig,
     created() {
       setLoaded(true);
     },
-
-    slides: slidesConfig,
   });
 
   //ARROWS STATE HANDLER
@@ -60,6 +61,12 @@ function PostSectionCol({
         instanceRef.current.track.details.slides.length - slidesConfig.perView,
     };
   }
+
+  const OPTIONS: EmblaOptionsType = {
+    align: "start",
+    direction: "rtl",
+    containScroll: "trimSnaps",
+  };
 
   return (
     <div className="flex flex-col gap-2">
@@ -102,11 +109,11 @@ function PostSectionCol({
         </div>
       </div>
 
-      <div
+      {/* <div
         ref={sliderRef}
         className={clsx([
           "keen-slider flex !justify-stretch",
-          !loaded && "skeleton",
+          !loaded && "opacity-50",
           customClass,
         ])}
       >
@@ -125,7 +132,24 @@ function PostSectionCol({
             />
           );
         })}
-      </div>
+      </div> */}
+      <Carousel>
+        {posts.map((p, index) => {
+          return (
+            <PostCard
+              customClass="keen-slider__slide"
+              key={p.title + index}
+              CoverImg={p.CoverImg}
+              title={p.title}
+              desc={p.desc}
+              date={p.date}
+              kind={p.kind}
+              category={p.category}
+              link={p.link}
+            />
+          );
+        })}
+      </Carousel>
     </div>
   );
 }
