@@ -9,7 +9,6 @@
 .embla__container {
   display: flex;
   will-change: transform;
-  margin-left: -1rem;
   align-items: stretch;
   height: 100%;
 }

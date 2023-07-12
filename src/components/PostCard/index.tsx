@@ -29,7 +29,7 @@ function PostCard({
       <div
         className={clsx([
           "flex bg-white drop-shadow-md p-2.5 gap-2 rounded-xl h-full",
-          kind === "col" ? "flex-col" : "flex-row ",
+          kind === "col" ? "flex-col" : "flex-row",
         ])}
       >
         <Link
@@ -46,7 +46,11 @@ function PostCard({
             className="object-cover rounded-lg"
           />
         </Link>
-        <div className="flex flex-col h-full items-center p-1.5 gap-2 justify-between">
+        <div
+          className={`flex flex-col  items-center p-1.5 gap-2 justify-between ${
+            kind === "col" ? "h-full" : ""
+          }`}
+        >
           <Link
             href={link}
             className="text-primary text-lg font-semibold hover:text-primary-l2 transition-colors duration-300 cursor-pointer"

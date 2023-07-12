@@ -79,7 +79,7 @@ function PostSectionCol({
             {icons.chevronFilledR(
               "rotate-180 group",
               "",
-              `transition-all duration-500   ${
+              `transition-all duration-500 ${
                 !nextBtnEnabled
                   ? "fill-dark-t25"
                   : "fill-dark group-hover:fill-primary-l2"
