@@ -15,6 +15,7 @@
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
     "embla-carousel-react": "^8.0.0-rc10",
+    "embla-carousel-wheel-gestures": "^8.0.0-rc04",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.6",
     "iconsax-react": "^0.0.8",

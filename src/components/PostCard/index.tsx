@@ -29,7 +29,7 @@ function PostCard({
       <div
         className={clsx([
           "flex bg-white drop-shadow-md p-2.5 gap-2 rounded-xl h-full",
-          kind === "col" ? "flex-col " : "flex-row ",
+          kind === "col" ? "flex-col" : "flex-row ",
         ])}
       >
         <Link
