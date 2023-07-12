@@ -6,12 +6,11 @@ import PostCard from "components/PostCard";
 import BulletTitle from "components/BulletTitle";
 import icons from "utils/icons";
 
-import "./embla.css";
-import type { IPostCard } from "types";
+import { categories, type IPostCardRes } from "types";
 
 interface IPostSectionColProps {
   customClass?: string;
-  posts: IPostCard[];
+  posts: IPostCardRes[];
   sectionTitle: string;
 }
 function PostSectionCol({
@@ -30,9 +29,18 @@ function PostSectionCol({
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1200);
+    }
+  }, []);
 
   useEffect(() => {
     if (embla) {
@@ -88,24 +96,46 @@ function PostSectionCol({
           </span>
         </div>
       </div>
-      <div className="embla" data-axis={"x"}>
-        <div ref={emblaRef} className="embla__viewport">
-          <div className="embla__container">
-            {posts.map((p, index) => {
-              return (
-                <PostCard
-                  customClass=""
-                  key={p.title + index}
-                  CoverImg={p.CoverImg}
-                  title={p.title}
-                  desc={p.desc}
-                  date={p.date}
-                  kind={p.kind}
-                  category={p.category}
-                  link={p.link}
-                />
-              );
-            })}
+      <div className="relative">
+        <div ref={emblaRef} className="overflow-hidden">
+          <div className="flex items-stretch h-full will-change-transform">
+            {loading
+              ? [...new Array(8)].map((p, index) => {
+                  return (
+                    <PostCard
+                      key={index}
+                      id={index + ""}
+                      CoverImg={""}
+                      title={
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, sint? "
+                      }
+                      desc={
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, sint? Adipisci impedit culpa, voluptatibus quo pariatur, eius consequuntur laboriosam iusto aut excepturi est, ipsum rem minima officia tempora corporis labore!"
+                      }
+                      date={""}
+                      kind={"col"}
+                      category={categories.EDUCATION}
+                      link={""}
+                      loading={true}
+                    />
+                  );
+                })
+              : posts.map((p, index) => {
+                  return (
+                    <PostCard
+                      key={p.title + index}
+                      id="p.title + index"
+                      customClass=""
+                      CoverImg={p.CoverImg}
+                      title={p.title}
+                      desc={p.desc}
+                      date={p.date}
+                      kind={"col"}
+                      category={p.category}
+                      link={p.link}
+                    />
+                  );
+                })}
           </div>
         </div>
       </div>{" "}

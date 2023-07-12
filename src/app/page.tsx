@@ -3,7 +3,7 @@ import LayoutComponent from "components/Layout";
 import PostCard from "components/PostCard";
 import PostSectionCol from "components/PostSectionCol";
 
-import { ICategoryChip, IPostCard, categories } from "types";
+import { ICategoryChip, IPostCardRes, categories } from "types";
 
 export default function Home() {
   return (
@@ -26,6 +26,7 @@ export default function Home() {
           }
           date={new Date().toISOString()}
           kind={"row"}
+          id="some id"
         />
       </div>
     </>
@@ -40,7 +41,7 @@ const mockData2: ICategoryChip[] = Object.values(categories).map((item, _) => ({
   category: item,
 }));
 
-const pdata: IPostCard[] = [...new Array(8)].map((item, index) => ({
+const pdata: IPostCardRes[] = [...new Array(8)].map((item, index) => ({
   link: "#",
   category: categories.EDUCATION,
   customClass: "w-[744px]",
@@ -54,5 +55,5 @@ const pdata: IPostCard[] = [...new Array(8)].map((item, index) => ({
       : "ویژن پرو ممکن است هرگز به آیفون بعدی اپل تبدیل نشود",
   desc: "نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد.نتایج نظرسنجی جدید از کاربران اندروید، محبوب‌ترین نسخه‌ی این سیستم‌عامل، محبوب‌ترین مرورگر در آن و غیره را نشان می‌دهد.",
   date: "2022-04-18T23:27:27.626Z",
-  kind: "col",
+  id: index + "",
 }));

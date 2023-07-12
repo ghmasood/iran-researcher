@@ -39,12 +39,12 @@ export interface IFooterCommentItem {
   link: string;
 }
 
-export interface IPostCard {
+export interface IPostCardRes {
+  id: string;
   CoverImg: string;
   title: string;
   desc: string;
   date: string;
-  kind: "col" | "row";
   category: categories;
   link: string;
 }
