@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import clsx from "clsx";
 
-import BulletTitle from "components/BulletTitle";
+import BulletTitle from "components/UI/BulletTitle";
 import icons from "utils/icons";
 
 import styles from "./social.module.scss";

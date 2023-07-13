@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 
-import BulletTitle from "components/BulletTitle";
-import BasicInput from "components/‌‌‌‌BasicInput";
+import BulletTitle from "components/UI/BulletTitle";
+import BasicInput from "components/UI/‌‌‌‌BasicInput";
 import icons from "utils/icons";
 
 interface INewsLetterProps {

@@ -2,8 +2,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
-import PostCard from "components/PostCard";
-import BulletTitle from "components/BulletTitle";
+import PostCard from "components/UI/PostCard";
+import BulletTitle from "components/UI/BulletTitle";
 import icons from "utils/icons";
 
 import { categories, type IPostCardRes } from "types";
@@ -12,12 +12,15 @@ interface IPostSectionColProps {
   customClass?: string;
   posts: IPostCardRes[];
   sectionTitle: string;
+  loading?: boolean;
 }
 function PostSectionCol({
   sectionTitle,
   posts,
+  loading,
   customClass = "",
 }: IPostSectionColProps) {
+  //SLIDER CONFIG
   const [emblaRef, embla] = useEmblaCarousel({
     loop: false,
     skipSnaps: true,
@@ -29,18 +32,9 @@ function PostSectionCol({
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-  const [loading, setLoading] = useState(true);
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
-
-  useEffect(() => {
-    if (loading) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1200);
-    }
-  }, []);
 
   useEffect(() => {
     if (embla) {
