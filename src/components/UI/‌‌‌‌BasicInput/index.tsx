@@ -2,7 +2,11 @@ import React, { ReactNode } from "react";
 
 import clsx from "clsx";
 
-interface IBasicInputProps {
+interface IBasicInputProps
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
   customClass?: string;
   plchldr?: string;
   LIcon?: ReactNode;
@@ -18,6 +22,7 @@ function BasicInput({
   val,
   customClass = "",
   onChange,
+  ...rest
 }: IBasicInputProps) {
   return (
     <div
@@ -28,6 +33,7 @@ function BasicInput({
     >
       {RIcon}
       <input
+        {...rest}
         onChange={onChange}
         className="h-full w-full focus-visible:outline-none"
         placeholder={plchldr}

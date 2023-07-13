@@ -1,14 +1,14 @@
 import React from "react";
 
 import SectionLayout from "components/UI/Layout";
+import PostSectionRow from "components/UI/PostSectionRow";
 
-import PostSectionCol from "components/UI/PostSectionCol";
 import type { IPostCardRes } from "types";
 
-interface ILastBlogSectionProps {
+interface IPopBlogSectionProps {
   customClass?: string;
 }
-async function LastBlogSection({ customClass = "" }: ILastBlogSectionProps) {
+async function PopBlogSection({ customClass = "" }: IPopBlogSectionProps) {
   const data = await getData();
   const news: IPostCardRes[] = data.items.map((n: any, index: number) => ({
     link: "#",
@@ -22,12 +22,12 @@ async function LastBlogSection({ customClass = "" }: ILastBlogSectionProps) {
 
   return (
     <SectionLayout>
-      <PostSectionCol posts={news} sectionTitle={"آخرین اخبار"} />
+      <PostSectionRow posts={news} sectionTitle={"پربازدیدترین"} />
     </SectionLayout>
   );
 }
 
-export default LastBlogSection;
+export default PopBlogSection;
 
 async function getData() {
   const res = await fetch(

@@ -11,6 +11,7 @@ import type { IPostCardRes } from "types";
 
 interface IPostCardProps extends IPostCardRes {
   customClass?: string;
+  imgWrapperClass?: string;
   kind: "col" | "row";
   loading?: boolean;
 }
@@ -26,6 +27,7 @@ function PostCard({
   loading = false,
   id = "",
   customClass = "",
+  imgWrapperClass = "",
 }: IPostCardProps) {
   //Vase link category bayad subLink is link post begiram
   return (
@@ -39,9 +41,10 @@ function PostCard({
         <Link
           href={link}
           className={clsx([
-            "relative aspect-[3/2] shrink-0 select-none",
+            "relative  shrink-0 select-none aspect-[3/2]",
             kind === "col" ? "h-[12rem]" : "w-1/2",
             loading && "skeleton",
+            imgWrapperClass,
           ])}
         >
           <Image
@@ -77,9 +80,9 @@ function PostCard({
             } w-full flex items-center gap-2 rounded-xl py-1 px-2 h-[3.25rem]`}
           >
             <div
-              className={`md:h-11 md:w-11 relative bg-primary rounded-lg ${
+              className={`relative bg-primary rounded-lg ${
                 loading && "skeleton"
-              }`}
+              } ${kind === "col" ? "md:h-11 md:w-11" : "sm:h-11 sm:w-11"} `}
             >
               <Image
                 src="./logo.svg"
