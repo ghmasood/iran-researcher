@@ -19,10 +19,10 @@ async function LastBlogSection({ customClass = "" }: ILastBlogSectionProps) {
     date: new Date(n.pubDate).toISOString(),
     id: index + "",
   }));
-
+  const a = await getJson();
   return (
     <SectionLayout>
-      <PostSectionCol posts={news} sectionTitle={"آخرین اخبار"} />
+      <PostSectionCol posts={a} sectionTitle={"آخرین اخبار"} />
     </SectionLayout>
   );
 }
@@ -39,4 +39,14 @@ async function getData() {
   }
 
   return res.json();
+}
+
+async function getJson() {
+  const res = await fetch("http://localhost:3000/api/blogList");
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return data;
 }
