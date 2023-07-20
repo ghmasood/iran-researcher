@@ -1,0 +1,19 @@
+{
+  "tag": "div",
+  "attributes": {
+    "class": "container"
+  },
+  "children": [
+    {
+      "tag": "h1",
+      "text": "Hello, World!",
+      "attributes": {
+        "class": "text-primary font-[700] text-2xl"
+      }
+    },
+    {
+      "tag": "p",
+      "text": "This is a sample paragraph."
+    }
+  ]
+}

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { cache } from "react";
 
 import SectionLayout from "components/UI/Layout";
 
 import PostSectionCol from "components/UI/PostSectionCol";
 import type { IPostCardRes } from "types";
+import WysiwygRenderer from "components/UI/wysiwyg";
 
 interface ILastBlogSectionProps {
   customClass?: string;
@@ -20,9 +21,12 @@ async function LastBlogSection({ customClass = "" }: ILastBlogSectionProps) {
     id: index + "",
   }));
   const a = await getJson();
+  const b = await getPost();
+  console.log(b.body);
   return (
     <SectionLayout>
       <PostSectionCol posts={a} sectionTitle={"آخرین اخبار"} />
+      <WysiwygRenderer json={b} />
     </SectionLayout>
   );
 }
@@ -43,6 +47,18 @@ async function getData() {
 
 async function getJson() {
   const res = await fetch("http://localhost:3000/api/blogList");
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return data;
+}
+
+async function getPost() {
+  const res = await fetch("http://localhost:3000/api/blog", {
+    cache: "no-cache",
+  });
   const data = await res.json();
   if (!res.ok) {
     throw new Error("Failed to fetch data");
